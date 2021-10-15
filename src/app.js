@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-// app.use('/api/EXAMPLE', exampleRouter); //* add endpoint router(s) to server
+app.use('/api/EXAMPLE', exampleRouter); // add endpoint router(s) to server
 
 app.get('/', (req, res, next) => {
   res.status(200).send('Hello, MongoDB and Express Boilerplate!');
