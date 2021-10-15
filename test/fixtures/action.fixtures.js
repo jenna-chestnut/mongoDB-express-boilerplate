@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET, JWT_EXPIRY } = require('../../src/config');
 
+// this file created dummy data for our tests
+
 const {
   makeUsersArr,
   makeExercisesArr,

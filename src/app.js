@@ -4,35 +4,23 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const authRouter = require('./middleware/auth-router');
-const registerRouter = require('./Routers/registration-router');
-const exercisesRouter = require('./Routers/exercise-router');
-const clientsRouter = require('./Routers/clients-router');
-const adminRouter = require('./Routers/admin-router');
-const clientMgmtRouter = require('./Routers/client-mgmt-router');
-const commentsRouter = require('./Routers/comments-router');
+const exampleRouter = require('./Routers/example-router');
 
 const morganOption = NODE_ENV === 'production' ? 'tiny' : 'common';
 
-const app = express();
-app.use(morgan(morganOption));
+const app = express(); // set up server
+app.use(morgan(morganOption)); // add security & semantic middleware
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRouter);
-app.use('/api/auth', registerRouter);
-app.use('/api/exercises', exercisesRouter);
-app.use('/api/clients', clientsRouter);
-app.use('/api/comments', commentsRouter);
-app.use('/api/users', adminRouter);
-app.use('/api/client-mgmt', clientMgmtRouter);
+// app.use('/api/EXAMPLE', exampleRouter); //* add endpoint router(s) to server
 
 app.get('/', (req, res, next) => {
-  res.status(200).send('Hello, MoveMed! To use, check out the docs for this API in the MoveMed MongoDB API repo for jenna-chestnut at GitHub.');
+  res.status(200).send('Hello, MongoDB and Express Boilerplate!');
 });
 
-app.use(function errorHandler(error, req, res, next) {
+app.use(function errorHandler(error, req, res, next) { // added error handler to prevent sensitive information to leak in production
   let response;
   if (NODE_ENV === 'production') {
     response = { error: { message: 'server error' } };

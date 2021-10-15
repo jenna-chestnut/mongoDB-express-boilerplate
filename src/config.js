@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+// utilize our .env file to access sensitive information as a variable in our code
 module.exports = {
   PORT: process.env.PORT || 8000,
   NODE_ENV: process.env.NODE_ENV || 'development',

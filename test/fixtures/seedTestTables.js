@@ -6,12 +6,14 @@ const UserExercise = require('../../src/models/user-exercise.model');
 const bcrypt = require('bcryptjs');
 const { makeFixtures } = require('./dbcontent.fixtures');
 
+// create dummy data
 const {
   users,
   exercises,
   user_exercises
 } = makeFixtures();
 
+// key value pairs to iterate through as we seed our test database
 const toSeed = [
   { name: 'Exercises', model: Exercise,  data: exercises },
   { name: 'Users', model: User, data: users.map(el => {
@@ -22,6 +24,7 @@ const toSeed = [
   { name: 'UserExercises', model: UserExercise, data: user_exercises },
 ];
 
+// function to call which will seed our database
 const seedTestTables = (url) => {
 
   mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
