@@ -10,7 +10,7 @@
     "dev": "nodemon src/server.js",
     "predeploy": "npm audit",
     "deploy": "git push heroku main",
-    "seed:production": "node ./seeds/seedExercises.js && node ./seeds/seedUsers.js && node ./seeds/seedUserExercises.js && node ./seeds/seedComments.js"
+    "seed:production": "node ./seeds/example-seedExercises.js"
   },
   "keywords": [],
   "engines": {
@@ -19,15 +19,12 @@
   "author": "Jenna Chestnut",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "helmet": "^4.2.0",
-    "jsonwebtoken": "^8.5.1",
+    "express": "^4.17.1",
     "mongoose": "^5.11.15",
-    "morgan": "^1.10.0",
-    "xss": "^1.0.8"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
