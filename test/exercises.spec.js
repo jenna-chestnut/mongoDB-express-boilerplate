@@ -25,7 +25,7 @@ describe('App', () => {
 
   it('GET /api/EXAMPLE responds with 200 and list of exercises', () => {
     return supertest(app)
-      .get('/api/EXAMPLE')
+      .get('/api/EXAMPLE-exercises')
       .expect(200)
       .then(res => {
         console.log(res.body);

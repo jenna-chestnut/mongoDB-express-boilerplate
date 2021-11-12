@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const exampleRouter = require('./Routers/example-router');
+const exampleExercisesRouter = require('./Routers/example-exercises-router');
 
 const morganOption = NODE_ENV === 'production' ? 'tiny' : 'common';
 
@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/EXAMPLE', exampleRouter); // add endpoint router(s) to server
+app.use('/api/EXAMPLE-exercises', exampleExercisesRouter); // add endpoint router(s) to server
 
 app.get('/', (req, res, next) => {
   res.status(200).send('Hello, MongoDB and Express Boilerplate!');
