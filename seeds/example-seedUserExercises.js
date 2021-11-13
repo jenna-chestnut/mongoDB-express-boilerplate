@@ -12,6 +12,14 @@ const userExerciseData = [
     frequency: 3,
     duration: 'day', 
     add_note:'Gradually increase pressure if it feels right!'
+  },
+  {
+    _id: '60467d7375d2cd48b1aad720',
+    exercise: '604158dc5c22d4d6406cc693', 
+    user_id: '6046847eb930aeb69876d002',
+    frequency: 1,
+    duration: 'hour', 
+    add_note:'A test comment on your test exercise!'
   }
 ];
 

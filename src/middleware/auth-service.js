@@ -9,24 +9,29 @@ const AuthService = {
     return await User.insertMany(newUser)
       .then(([user]) => user);
   },
+
   getUserWithUserName: async (user_name) => {
     return await User.find({user_name})
     .then(([user]) => user);
   },
+
   deleteUser(db, id) {
     return db('users')
       .delete()
       .where({ id });
   },
+
   parseBasicToken(token) {
     return Buffer
       .from(token, 'base64')
       .toString()
       .split(':');
   },
+
   comparePasswords(password, hash) {
     return bcrypt.compare(password, hash);
   },
+
   createJwt(subject, payload) {
     return jwt.sign(payload, JWT_SECRET, {
       subject,
@@ -34,6 +39,7 @@ const AuthService = {
       algorithm: 'HS256'
     });
   },
+  
   verifyJwt(token) {
     return jwt.verify(token, JWT_SECRET, {
       algorithms: ['HS256']
