@@ -3,6 +3,7 @@
 ### Get your Express/MongoDB project up and running easily with this boilerplate
 
 ---
+[Watch this video for step-by-step instructions and walkthrough!](https://youtu.be/rb-NKgtT_Jk)
 
 ## Set up
 
