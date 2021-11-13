@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { TEST_ATLAS_URI } = process.env;
 const seedTestTables = require('./fixtures/seedTestTables');
 
-describe('App', () => {
+describe('Exercises Endpoint', () => {
   before('connect to db', () => {
     mongoose.connect(TEST_ATLAS_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
     const { connection } = mongoose;
@@ -17,13 +17,7 @@ describe('App', () => {
 
   beforeEach(done => setTimeout(done, 500));
 
-  it('GET / responds with 200 containing "Hello, MongoDB and Express Boilerplate!"', () => {
-    return supertest(app)
-      .get('/')
-      .expect(200, 'Hello, MongoDB and Express Boilerplate!');
-  });
-
-  it('GET /api/EXAMPLE responds with 200 and list of exercises', () => {
+  it('GET /api/EXAMPLE-exercises responds with 200 and list of exercises', () => {
     return supertest(app)
       .get('/api/EXAMPLE-exercises')
       .expect(200)

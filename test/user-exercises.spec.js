@@ -3,8 +3,9 @@ const app = require('../src/app');
 const mongoose = require('mongoose');
 const { TEST_ATLAS_URI } = process.env;
 const seedTestTables = require('./fixtures/seedTestTables');
+const { makeUsersArray } = require('./fixtures/dbcontent.fixtures');
 
-describe('App', () => {
+describe('User-Exercises Endpoint', () => {
   before('connect to db', () => {
     mongoose.connect(TEST_ATLAS_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
     const { connection } = mongoose;
@@ -17,20 +18,21 @@ describe('App', () => {
 
   beforeEach(done => setTimeout(done, 500));
 
-  it('GET / responds with 200 containing "Hello, MongoDB and Express Boilerplate!"', () => {
-    return supertest(app)
-      .get('/')
-      .expect(200, 'Hello, MongoDB and Express Boilerplate!');
-  });
+  it('returns 200 and all USER exercises for logged in user', () => {
+    const testUsers = makeUsersArray();
 
-  it('GET /api/EXAMPLE responds with 200 and list of exercises', () => {
     return supertest(app)
       .get('/api/EXAMPLE-user-exercises')
+      .set('Authorization', Actions.makeAuthHeader(testUsers[1]))
       .expect(200)
       .then(res => {
-        console.log(res.body);
         expect(res.body).to.be.an('array');
-        expect(res.body).to.have.lengthOf(2);
+        res.body.forEach(exc => {
+          expect(exc.user_id).to.eql(testUsers[1]._id);
+          expect(exc).to.have.property('frequency');
+          expect(exc).to.have.property('duration');
+          expect(exc.exercise).to.have.property('exercise_name');
+        });
       });
   });
 });
