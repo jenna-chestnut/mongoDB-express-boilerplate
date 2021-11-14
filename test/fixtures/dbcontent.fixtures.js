@@ -47,7 +47,7 @@ const makeUserExercisesArray = () => {
       add_note:'Gradually increase pressure if it feels right!'
     },
     {
-      _id: '60467d7375d2cd48b1aad720',
+      _id: '60467d7375d2cd48b1aad726',
       exercise: exercises[1]._id, 
       user_id: users[1]._id,
       frequency: 1,
@@ -57,8 +57,15 @@ const makeUserExercisesArray = () => {
   ];
 };
 
-const makeFixtures = {
-
+const makeFixtures = () => {
+  const users = makeUsersArray();
+  const exercises = makeExercisesArray();
+  const user_exercises = makeUserExercisesArray();
+  return {
+    users,
+    exercises,
+    user_exercises
+  };
 };
 
 module.exports = {

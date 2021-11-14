@@ -26,8 +26,8 @@ describe('User-Exercises Endpoint', () => {
       .set('Authorization', Actions.makeAuthHeader(testUsers[1]))
       .expect(200)
       .then(res => {
-        expect(res.body).to.be.an('array');
-        res.body.forEach(exc => {
+        expect(res.body.userExercises).to.be.an('array');
+        res.body.userExercises.forEach(exc => {
           expect(exc.user_id).to.eql(testUsers[1]._id);
           expect(exc).to.have.property('frequency');
           expect(exc).to.have.property('duration');

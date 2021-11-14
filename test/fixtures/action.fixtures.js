@@ -2,12 +2,12 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET, JWT_EXPIRY } = require('../../src/config');
 
 const {
-  makeUsersArr,
-  makeExercisesArr
+  makeUsersArray,
+  makeExercisesArray
 } = require('./dbcontent.fixtures');
 
-const ex = makeExercisesArr();
-const users = makeUsersArr();
+const ex = makeExercisesArray();
+const users = makeUsersArray();
 
 function makeAuthHeader(user, secret = JWT_SECRET) {
   const token = jwt.sign({ 

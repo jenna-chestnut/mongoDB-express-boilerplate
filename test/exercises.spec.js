@@ -15,7 +15,7 @@ describe('Exercises Endpoint', () => {
 
   before('seed collections', () => seedTestTables(TEST_ATLAS_URI));
 
-  beforeEach(done => setTimeout(done, 500));
+  beforeEach(done => setTimeout(done, 1000));
 
   it('GET /api/EXAMPLE-exercises responds with 200 and list of exercises', () => {
     return supertest(app)

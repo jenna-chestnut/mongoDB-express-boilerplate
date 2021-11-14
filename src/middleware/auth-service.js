@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET, JWT_EXPIRY } = require('../config');
-const User = require('../models/user.model');
+const User = require('../models/example-user.model');
 
 const AuthService = {
   createUser: async (newUser) => {

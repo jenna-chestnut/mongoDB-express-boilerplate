@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Exercise = require('../../src/models/example-exercise.model');
 const User = require('../../src/models/example-user.model');
-const UserExercise = require('../../src/models/example-user.model');
+const UserExercise = require('../../src/models/example-user-exercise.model');
 const { makeFixtures } = require('./dbcontent.fixtures');
 
 // create dummy data

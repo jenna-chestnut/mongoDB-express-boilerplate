@@ -4,7 +4,7 @@ const app = require('../src/app');
 const { TEST_ATLAS_URI } = process.env;
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const { seedTestTables } = require('./fixtures/seedTestTables');
+const seedTestTables = require('./fixtures/seedTestTables');
 const { JWT_SECRET, JWT_EXPIRY } = require('../src/config');
 const Actions = require('./fixtures/action.fixtures');
 const Content = require('./fixtures/dbcontent.fixtures');
@@ -21,9 +21,11 @@ describe('/login and /register endpoints', () => {
 
   before('seed tables', () => seedTestTables(TEST_ATLAS_URI));
 
+  beforeEach(done => setTimeout(done, 500));
+
   after('disconnect from db', () => mongoose.connection.close());
 
-  const testUsers = Content.makeUsersArr();
+  const testUsers = Content.makeUsersArray();
 
   describe('POST api/auth/login Endpoint', () =>{
     const requiredFields = ['user_name', 'password'];
