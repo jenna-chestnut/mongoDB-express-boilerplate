@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { TEST_ATLAS_URI } = process.env;
 const seedTestTables = require('./fixtures/seedTestTables');
 const { makeUsersArray } = require('./fixtures/dbcontent.fixtures');
+const Actions = require('./fixtures/action.fixtures');
 
 describe('User-Exercises Endpoint', () => {
   before('connect to db', () => {
