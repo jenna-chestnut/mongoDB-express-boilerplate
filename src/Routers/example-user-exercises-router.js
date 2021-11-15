@@ -11,10 +11,10 @@ userExercisesRouter
 userExercisesRouter
   .route('/')
   .get(async (req, res, next) => {
-    const { user_id } = req.params;
+    const { _id } = req.user;
 
     try {
-      const userExercises = await UserExercise.find({user_id}).populate('exercise').lean();
+      const userExercises = await UserExercise.find({user_id : _id}).populate('exercise').lean();
 
       if (!userExercises) return res.status(404).json({
         error: 'user exercises not found'

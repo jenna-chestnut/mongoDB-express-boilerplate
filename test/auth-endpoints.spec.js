@@ -70,8 +70,7 @@ describe('/login and /register endpoints', () => {
         { 
           user_id: testUsers[0]._id,
           name: testUsers[0].full_name,
-          is_admin: testUsers[0].is_admin,
-          is_provider: testUsers[0].is_provider 
+          is_admin: testUsers[0].is_admin 
         }, //payload
         JWT_SECRET,
         {
@@ -91,7 +90,7 @@ describe('/login and /register endpoints', () => {
   });
 
   describe('POST api/auth/register Endpoint', () => {
-    const requiredFields = ['user_name', 'full_name', 'password', 'is_admin', 'is_provider'];
+    const requiredFields = ['user_name', 'full_name', 'password', 'is_admin'];
 
 
     describe('api/auth/register validation', () => {

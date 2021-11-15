@@ -20,8 +20,8 @@ registerRouter
 registerRouter
   .route('/register')
   .post(async (req, res, next) => {
-    const { full_name, user_name, password, is_admin, is_provider } = req.body;
-    const regUser = { full_name, user_name, password, is_admin, is_provider };
+    const { full_name, user_name, password, is_admin} = req.body;
+    const regUser = { full_name, user_name, password, is_admin };
 
     for (const [key, value] of Object.entries(regUser)) {
       if (value == null) {

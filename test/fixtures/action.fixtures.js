@@ -13,8 +13,7 @@ function makeAuthHeader(user, secret = JWT_SECRET) {
   const token = jwt.sign({ 
     user_id: user._id,
     name: user.full_name,
-    is_admin: user.is_admin,
-    is_provider: user.is_provider
+    is_admin: user.is_admin
   }, secret, {
     subject: user.user_name,
     expiresIn: JWT_EXPIRY,
@@ -26,8 +25,6 @@ function makeAuthHeader(user, secret = JWT_SECRET) {
 const makeNewExercise = () => {
   return {
     exercise_name: 'New Exercises', 
-    imgurl: 'https://tinyurl.com/y4qwu5kf', 
-    videourl: '3UTHsuDl4vw'
   };
 };
 
@@ -47,8 +44,7 @@ const makeNewUser = () => {
     full_name: 'New User',
     user_name: 'brandNewUser',
     password: 'SOs0s3cr3t!',
-    is_admin: false,
-    is_provider: false
+    is_admin: false
   };
 };
 

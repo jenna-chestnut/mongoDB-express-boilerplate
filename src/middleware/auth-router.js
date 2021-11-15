@@ -44,8 +44,7 @@ authRouter
         const payload = { 
           user_id : user._id,  
           name: user.full_name,
-          is_admin: user.is_admin,
-          is_provider: user.is_provider 
+          is_admin: user.is_admin 
         };
         return res.send({
           authToken: AuthService.createJwt(sub, payload)
@@ -59,8 +58,7 @@ authRouter
     const payload = {
       user_id: user.id,
       name: user.full_name,
-      is_admin: user.is_admin,
-      is_provider: user.is_provider,
+      is_admin: user.is_admin
     };
     res.send({
       authToken: AuthService.createJwt(sub, payload),
